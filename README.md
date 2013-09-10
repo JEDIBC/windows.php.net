@@ -8,11 +8,11 @@ Instalaltion
 
 You need to have node and npm installed.
 
-Install grunt-cli globally :
+Install grunt-cli and bower globally :
 ```
-npm install -g grunt-cli
+sudo npm install -g grunt-cli bower
 ```
-Install grunt and bower :
+Install grunt :
 ```
 npm install
 ```

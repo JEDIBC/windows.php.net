@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         less: {
             build: {
                 files: {
-                    "public/style.min.css": "assets/less/style.less"
+                    "build/style.css": "assets/less/style.less"
                 }
             }
         },
@@ -15,7 +15,7 @@ module.exports = function(grunt) {
                     "bower_components/jquery/jquery.js",
                     "bower_components/bootstrap/dist/bootstrap.js"
                 ],
-                dest: "public/script.min.js"
+                dest: "build/script.js"
             }
         },
         uglify: {
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
                 beautify: false
             },
             build: {
-                src: "public/script.min.js",
+                src: "build/script.js",
                 dest: "public/script.min.js"
             }
         },
@@ -36,21 +36,21 @@ module.exports = function(grunt) {
             },
             build: {
                 files: {
-                    "public/style.min.css": "public/style.min.css"
+                    "public/style.min.css": "build/style.css"
                 }
             }
         },
         watch: {
             js: {
                 files: "assets/**/*.js",
-                tasks: ["concat:js"],
+                tasks: ["concat:js", "uglify"],
                 options: {
                     interrupt: true
                 }
             },
             css: {
-                files: ["assets/**/*.less", "assets/**/*.css"],
-                tasks: ["less"],
+                files: ["assets/**/*.less"],
+                tasks: ["less", "cssmin"],
                 options: {
                     interrupt: true
                 }
